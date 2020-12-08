@@ -102,7 +102,7 @@ class HTMLRenderer:
             fullname = frame.get_path(None)
             stack["code"] = []
             stack["function"] = frame.func
-            if fullname is None:
+            if fullname is None or not os.path.exists(fullname):
                 stack["fileref"] = frame.func
             else:
                 error_line = frame.line
